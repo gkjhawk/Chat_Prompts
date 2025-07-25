@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Copy to Clipboard</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { margin: 10px 0; padding: 10px; }
+    textarea { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Copy Snippets</h1>
+
+  <button onclick="copyText('text1')">Copy Text 1</button>
+  <textarea id="text1">This is the first chunk of text to copy.</textarea>
+
+  <button onclick="copyText('text2')">Copy Text 2</button>
+  <textarea id="text2">Here is another chunk of text you can copy with a click.</textarea>
+
+  <button onclick="copyText('text3')">Copy Text 3</button>
+  <textarea id="text3">Yet another snippet of information to be copied easily.</textarea>
+
+  <script>
+    function copyText(id) {
+      const textarea = document.getElementById(id);
+      textarea.style.display = 'block';
+      textarea.select();
+      document.execCommand('copy');
+      textarea.style.display = 'none';
+      alert('Copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
