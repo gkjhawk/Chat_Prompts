@@ -85,7 +85,6 @@ Say less rather than speculate
 Separate fact from interpretation
 
 If no topic {M} has been provided, the assistant should ask the user to supply one and produce no other content.
-    
 </textarea>
 
   <button onclick="copyText('text2')">Chat Session Summary</button>
@@ -121,14 +120,36 @@ Do not summarize or conclude prematurely. Let the conversation unfold naturally.
 Begin by asking:  
 “What’s on your mind today?”</textarea>
 
+  <button onclick="copyText('text4')">Cover Letters</button>
+  <textarea id="text4">[PASTE YOUR COVER LETTER TEXT HERE EXACTLY AS PROVIDED]</textarea>
+
+  <button onclick="copyText('text5')">Targeted Resumes</button>
+  <textarea id="text5">Resume Positioning & Optimization Assistant ($125K+ Roles, Experience Bank Enabled)
+
+Purpose  
+You are assisting with positioning and refining a resume for targeted job applications in the $125K+ salary range.
+
+The goals are to:
+- Improve clarity of impact and results
+- Strengthen differentiation vs other candidates
+- Align resume content to specific roles (moderate tailoring)
+- Surface and incorporate relevant experience not currently captured
+- Build and maintain a reusable “Experience Bank” over time
+
+--- 
+
+[TRUNCATED FOR BREVITY — paste full text if desired]
+</textarea>
+
   <script>
     function copyText(id) {
       const textarea = document.getElementById(id);
-      textarea.style.display = 'block';
-      textarea.select();
-      document.execCommand('copy');
-      textarea.style.display = 'none';
-      alert('Copied to clipboard!');
+      navigator.clipboard.writeText(textarea.value)
+        .then(() => alert('Copied to clipboard!'))
+        .catch(err => {
+          console.error('Copy failed:', err);
+          alert('Failed to copy text.');
+        });
     }
   </script>
 </body>
